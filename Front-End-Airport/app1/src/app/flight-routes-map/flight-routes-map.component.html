@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="col-xl-auto bg-secondary" style=" align-content: center; padding: 60px 60px; border: #1b1e21;">
+    <h2 style="text-align: center"><u><strong>Flight - Route Mapping</strong></u></h2>
+    <div class="col-xl-auto form-group">
+      <hr>
+      <h2 style="text-align: center"><u><strong>Flights</strong></u></h2>
+      <select name="f" id="f"
+              (change)="onSelect($event.target.value)"
+              class="custom-select custom-select-lg" type="text" required>
+        <option selected>Select Flight</option>
+        <option value="782">Flight_782</option>
+        <option value="783">Flight_783</option>
+        <option value="789">Flight_789</option>
+      </select>
+      <h2 style="text-align: center"><u><strong>Routes</strong></u></h2>
+      <select name="r" id="r"
+              (change)="onSelect1($event.target.value)"
+              class="custom-select custom-select-lg" type="text" required>
+        <option selected>Select Route</option>
+        <option *ngFor="let rid of list;" value = {{rid.rid}}>
+         Route ID: {{ rid.rid }}-> Route: {{rid.routes}}
+        </option>
+      </select>
+    </div>
+    <a (click)="onSubmit()" class="btn btn-success">Create Map</a>
+    <a (click)="onBack()" class="btn btn-danger">Back</a>
+  </div>
+</div>

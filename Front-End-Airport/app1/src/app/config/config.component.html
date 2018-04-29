@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="col-xl-auto bg-secondary" style=" align-content: center; padding: 60px 60px; border: #1b1e21;">
+        <collapsible-list [type]="'accordion'">
+          <collapsible-list-item>
+            <collapsible-header class="waves-effect bg-secondary" style=" align-content: center; padding: 20px 20px; border: #1b1e21;">
+              <button class="btn btn-group-lg btn-primary"><b>Add Network</b></button>
+            </collapsible-header>
+            <collapsible-body [expanded]="false">
+              <div class="container-fluid">
+                <h5>Add Location:</h5>
+                <form>
+                  <div class="form-group">
+                    <input placeholder="Enter new location" class="form-control" #locc>
+                  </div>
+                  <br>
+                  <button class="btn btn-primary" (click)="onSubmit(locc)">Add this network</button>
+                </form>
+              </div>
+            </collapsible-body>
+          </collapsible-list-item>
+          <br><br><br>
+          <hr>
+          <collapsible-list-item>
+            <collapsible-header class="waves-effect bg-secondary" style=" align-content: center; padding: 20px 20px; border: #1b1e21;">
+              <button type="button" class="btn btn-group-lg btn-primary" (click)="addin()"><b>Add Node</b></button>
+            </collapsible-header>
+            <collapsible-body [expanded]="false">
+
+              <p>Select a location to add new node on that network </p>
+              <form>
+                <select
+                  (change)="onSelect($event.target.value)"
+                  class="custom-select custom-select mb-3" id="loc-name" name="name" required>
+                  <option selected>Select location Here</option>
+                  <option *ngFor="let bname of list;"  value= {{bname.bid}}  >
+                    {{bname.bloc}}, {{bname.bid}}
+                  </option>
+                </select>
+                <div class="form-group">
+                  <input placeholder="Enter new location for this node" name="a" [(ngModel)]="nid" class="form-control" #nloc required>
+                </div>
+                <br>
+                <button class="btn btn-primary" (click)="onSubmit1()">Submit</button>
+              </form>
+            </collapsible-body>
+          </collapsible-list-item>
+        </collapsible-list>
+      <a (click)="onBack()" class="btn btn-danger">Back</a>
+    </div>
+</div>
+

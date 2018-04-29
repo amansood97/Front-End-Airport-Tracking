@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="col-xl-auto bg-secondary" style=" align-content: center; padding: 60px 60px; border: #1b1e21;">
+    <h2 style="text-align: center"><u><strong>Configuring Routes</strong></u></h2>
+    <div style="text-align: center"><img width="200" style="align-content: center" src="../../assets/logo2.jpg" alt="Route Map"></div>
+    <div class="row">
+      <div class="container">
+        <a class="btn btn-info btn-group-lg" (click)="onAdd()">
+          <span class="fas fa-plus"></span> Add Route
+        </a>
+        <br>
+        <br>
+        <a class="btn btn-info btn-group-lg" (click)="onSubmit1()">
+          <span class="fas fa-plane"></span> Get Routes
+        </a>
+        <br>
+        <br>
+        <a class="btn btn-info btn-group-lg" (click)="onSubmit2()">
+          <span class="fas fa-map-signs"></span> Add Flight Route Mapping
+        </a>
+        <br>
+        <br>
+        <a class="btn btn-info btn-group-lg" (click)="onSubmit3()">
+          <span class="fas fa-map"></span> Get Route for a Flight
+        </a>
+      </div>
+    </div>
+    <div *ngIf="addOn" class="container">
+      <div *ngIf="carryOn" class="col-xl-auto form-group">
+        <hr>
+        <select name="a" id="a"
+                (change)="onSelect($event.target.value)"
+                class="custom-select custom-select-lg" type="text" required>
+          <option selected>Select Route Node Config</option>
+          <option *ngFor="let dev of list; let i = index" [disabled]="dis[i]" value = {{dev.did}}>{{dev.loc}}
+          </option>
+        </select>
+        <br>
+        <br>
+        <a  (click)="onNext()" class="btn btn-success" role="button" >Add Next Node Config</a>
+        <a  (click)="onDelete()" class="btn btn-info" role="button" >Reset</a>
+        <br>
+        <br>
+        <div class="form-group">
+          <label for="Route">Route:</label>
+          <input type="text" class="form-control" id="Route" placeholder="" disabled
+                 name="Route" [(ngModel)]="Route">
+        </div>
+        <br>
+      </div>
+    </div>
+    <br>
+    <a *ngIf="addRoute" (click)="onSubmit()" class="btn btn-success">Save Route</a>
+    <a *ngIf="addRoute" (click)="onBack()" class="btn btn-danger">Back</a>
+    <a *ngIf="home" (click)="onBackHome()" class="btn btn-danger">Back</a>
+  </div>
+</div>

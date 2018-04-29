@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="col-xl-auto bg-secondary" style=" align-content: center; padding: 60px 60px; border: #1b1e21;">
+    <h2 style="text-align: center"><u><strong>Airports</strong></u></h2>
+    <div class="col-xl-auto form-group">
+      <hr>
+      <select name="a" id="a"
+      (change)="onSelect($event.target.value)"
+      class="custom-select custom-select-lg" type="text" required>
+        <option selected>Select Airport</option>
+        <option *ngFor="let cname of list;" value = {{cname.aid}}>
+          {{ cname.name }}
+        </option>
+      </select>
+    </div>
+    <a (click)="onSubmit()" class="btn btn-success">Let's Go</a>
+  </div>
+</div>

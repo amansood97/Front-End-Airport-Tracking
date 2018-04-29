@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="col-xl-auto bg-secondary" style=" align-content: center; padding: 60px 60px; border: #1b1e21;">
+    <h2 style="text-align: center"><u><strong>Flight - Route Maps</strong></u></h2>
+    <h2 style="text-align: left">Enter the Flight ID</h2>
+    <div class="row-xl-auto bg-secondary">
+      <input type="text" id="fid" [(ngModel)]="fid">
+    </div>
+    <br>
+    <table *ngIf="getRoutes" class="table">
+      <tr>
+        <th>#</th>
+        <th>Route ID</th>
+        <th>Flight ID</th>
+        <th>Airport ID</th>
+        <th>Route</th>
+      </tr>
+      <tr *ngFor="let route of list; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{route.rid}}</td>
+        <td>{{route.fid}}</td>
+        <td>{{route.aid}}</td>
+        <td>{{route.routes}}</td>
+      </tr>
+    </table>
+    <a (click)="onSubmit()" class="btn btn-success">Get Flight - Route Map</a>
+    <a (click)="onReset()" class="btn btn-info">Reset</a>
+    <a (click)="onSubmit1()" class="btn btn-danger">Back</a>
+  </div>
+</div>
+
