@@ -69,8 +69,10 @@ export class RouteconfigComponent implements OnInit {
   }
 
   onSubmit(){
-    this.addOn = false;
+    this.addOn = true;
     this.carryOn = true;
+    //this.addRoute = false;
+    //this.home = true;
     const jsonObj = {'Airport_id': this.id.toString(), 'Route': this.final.toString()};
     this.http.post('http://airporttracking.us-east-1.elasticbeanstalk.com/routes/saveroute', jsonObj)
       .subscribe(
@@ -80,6 +82,7 @@ export class RouteconfigComponent implements OnInit {
         },
         (err) => console.log(err)
       );
+    this.onDelete();
   }
 
   onSubmit1(){
